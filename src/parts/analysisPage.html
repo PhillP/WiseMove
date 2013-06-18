@@ -1,0 +1,42 @@
+<div data-role="header">
+    <h1>Results</h1>
+</div>
+<div data-role="content" >
+<ul data-role="listview" data-inset="true" data-divider-theme="a">
+    <li data-role="list-divider"><h3>Results</h3></li>
+    <li><a href="#travelTimePage" data-inline="true">
+        <h3>Times</h3>
+        <p>Calculated travel times between candidate and visit locations</p>.</p>
+    </a>
+    </li>
+    <li data-role="list-divider"><h3>Charts</h3></li>
+    <li><a href="#chartPage" data-bind="click: $root.analysisViewModel.plotStackedTravelTimes" data-inline="true">
+        <h3>Travel Time Chart</h3>
+        <p>Compare frequency adjusted travel times.</p>
+        </a>
+    </li>
+    <li><a href="#chartPage" data-bind="click: $root.analysisViewModel.plotStackedSingleTrip" data-inline="true">
+        <h3>Travel Time Chart (single trip)</h3>
+        <p>Compare single-trip travel times.</p>
+    </a>
+    </li>
+    <li><a href="#chartPage" data-bind="click: $root.analysisViewModel.plotStackedScores" data-inline="true">
+        <h3>Score Chart</h3>
+        <p>Weighted scores based on travel times, distances &amp; measures.</p>
+    </a>
+    </li>
+    <!--
+    <li><a href="#chartPage" data-bind="click: $root.analysisViewModel.plotStackedDistance" data-inline="true">
+        <h3>Distance (straight-line)</h3>
+        <p>Compare frequency adjusted travel distances.</p>
+        </a></li>
+    <li><a href="#chartPage" data-bind="click: $root.analysisViewModel.plotStackedDistanceSingle" data-inline="true">
+        <h3>Distance (straight-line, single trip)</h3>
+        <p>Compare travel distances.</p>
+    </a></li>
+    -->
+</ul>
+</div>
+<div data-role="footer" id="analysis_commonFooterPart"></div>
+
+

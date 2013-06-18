@@ -1,0 +1,59 @@
+<div data-role="header">
+    <a data-role="button" data-rel="back" data-icon="arrow-l" class="headerBack">Back</a>
+    <h1>People</h1>
+
+    <div id="refPage_AddPersonPopup" data-role="popup" data-bind="popupvisible: $root.personAddUpdateDeleteViewModel.isAddingItem, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.personAddUpdateDeleteViewModel.newItem">
+            <div class="ui-bar ui-bar-a">
+                <h1>Add Person</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.personAddUpdateDeleteViewModel.addNewItem, jqmlinkbuttonenabled: isModelValid" data-inline="true">Add</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.personAddUpdateDeleteViewModel.cancelAddNewItem">Close</a>
+    </div>
+
+    <div id="refPage_UpdateDeletePersonPopup" data-role="popup" data-bind="popupvisible: $root.personAddUpdateDeleteViewModel.isUpdatingDeletingItem, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.personAddUpdateDeleteViewModel.updateDeleteItemClone">
+            <div class="ui-bar ui-bar-a">
+                <h1>Update Person</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.personAddUpdateDeleteViewModel.updateItem, jqmlinkbuttonenabled: isModelValid" data-inline="true">Update</a>
+                <a data-role="button" data-bind="click: $root.personAddUpdateDeleteViewModel.deleteItem" data-inline="true">Delete</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.personAddUpdateDeleteViewModel.cancelUpdateDeleteItem">Close</a>
+    </div>
+</div>
+
+<div data-role="content" >	
+<ul data-role="listview" data-inset="true">
+	<li data-role="list-divider">
+		<div data-type='horizontal'>
+			    <h3>
+					Scorers
+					<a data-role="button" data-bind="click: $root.personAddUpdateDeleteViewModel.beginAddNewItem" data-inline="true" data-icon='plus' data-mini="true" data-iconpos='notext'><span>Add</span></a>
+				</h3>
+			    <p>Scorers rate candidate locations based on subjective measures.</p>
+		</div>
+    </li>
+	<!-- ko jqmforeach: $root.currentProject().people -->
+	<li data-bind="ifnot: isBuiltin"><a href="#"><h3><span data-bind="text: name"></span></h3><p>...</p></a><a data-bind="click: $root.personAddUpdateDeleteViewModel.beginUpdateDeleteItem" data-icon="edit" data-inline="true"><span>Details</span></a></li>
+	<!-- /ko -->
+</ul>
+</div>
+<div data-role="footer" id="people_commonFooterPart"></div>
+
+

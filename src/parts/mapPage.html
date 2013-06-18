@@ -1,0 +1,96 @@
+<div data-role="header">
+        <div id ="searchContainer">
+            <form data-bind="submit: $root.mapViewModel.beginSearch" action="javascript:void(0);">
+                <input type="search" data-bind="value: $root.mapViewModel.searchAddress, valueUpdate: 'afterkeydown'" id="txtLocation" align='middle' placeholder="Type an address" data-mini="true"/>
+            </form>
+        </div>
+        <div id ="toolBarButtonDiv" data-bind="with: mapViewModel">
+            <a data-role="button" data-mini="true" data-iconpos="notext" data-bind="click: beginSearch, enable: searchAddressEntered" data-inline="true" data-icon="search" >Go</a>
+            <a data-role="button" data-mini="true" data-iconpos="notext" data-bind="click: beginPlaceCandidate" data-inline="true" data-icon="app-candidate">Candidate</a>
+            <a data-role="button" data-mini="true" data-iconpos="notext" data-bind="click: beginPlaceVisit" data-inline="true" data-icon="app-visit">Visit</a>
+        </div>
+
+
+            <!--
+            <div id="toolbar" style="width:100%;margin:5px; height:auto;" data-bind="with: mapViewModel">
+
+            <div style="width:100%;">
+
+                <div id="toolbarSearchDiv" style="float:left;">
+                    <input type="search" data-bind="value: searchAddress, valueUpdate: 'afterkeydown'" id="txtLocation" align='middle' placeholder="Type an address" data-mini="true"/>
+                </div>
+                <div id="toolbarButtonDiv" style="float:left;width:auto;">
+                    <a data-role="button" data-mini="true" data-inline="true" data-bind="click: beginSearch, enable: searchAddressEntered" data-icon="search" >Go</a>
+                </div>
+
+            </div>
+                <div style="width:auto">
+                    <a data-role="button" data-mini="true" data-bind="click: beginPlaceCandidate" data-inline="true" data-icon="app-candidate">Candidate</a>
+                    <a data-role="button" data-mini="true" data-bind="click: beginPlaceVisit" data-inline="true" data-icon="app-visit">Visit</a>
+                </div>
+        </div>
+
+            -->
+        <div  data-role="popup" id="mapPage_guidePopup" data-bind="popupvisible: $root.mapViewModel.isShowingGuidance" class="ui-content">
+            <span>
+                <ul>
+                    <h3>Guide</h3>
+                    <li>Orient the map by searching for an address.</li>
+                    <li>Press <img src="images/map-marker-candidate.png"></img> to place a candidate location for evaluation</li>
+                    <li>Press <img src="images/map-marker-visit.png"></img> to place a visit location.  Each visit location is given a frequency score which indicates how often the location is visited relative to other locations.</li>
+                </ul>
+            </span><a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+        </div>
+
+		<div  data-role="popup" id="mapPage_popupCandidate" data-bind="popupvisible: $root.mapViewModel.isPlacingCandidateLocation" class="ui-content">
+			<span>Click the map to drop a new candidate location pin. <img src="images/map-marker-candidate.png"></img></span><a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+		</div>
+		
+		<div data-role="popup" id="mapPage_popupVisit" data-bind="popupvisible: $root.mapViewModel.isPlacingVisitLocation" class="ui-content">
+			<span>Click the map to drop a new visit location pin. <img src="images/map-marker-visit.png"></img></span><a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+		</div>
+		
+		<div id="addVisitPopup" data-role="popup" data-bind="popupvisible: $root.mapViewModel.isAddingVisit, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+			<div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.mapViewModel.visitLocation">
+				<div class="ui-bar ui-bar-a">
+					<h1>Add Visit Location</h1>
+				</div>
+				<div class="ui-content">
+					<fieldset >
+					Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+					<label for="sldFrequency">Frequency: <span data-bind="text: frequency"></span></label>
+					<input type="number" id="sldFrequency" min="1" max="10" data-bind="slidervalue: frequency" /> 
+				</fieldset>
+				</div>
+				<div class="ui-bar ui-bar-a">
+					<a data-role="button" data-bind="click: $root.mapViewModel.addVisit, jqmlinkbuttonenabled: isModelValid" data-inline="true">Add</a>
+				</div>
+			</div>
+            <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+		</div>
+			
+		<div id="addCandidatePopup" data-role="popup" data-bind="popupvisible: $root.mapViewModel.isAddingCandidate, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+			<div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.mapViewModel.candidateLocation">
+				<div class="ui-bar ui-bar-a">
+						<h3>Add Candidate Location</h3>
+				</div>
+				<div class="ui-content">
+				<fieldset >
+					Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+				</fieldset>
+				</div>
+				<div class="ui-bar ui-bar-a">
+						<a data-role="button" data-bind="click: $root.mapViewModel.addCandidate, jqmlinkbuttonenabled: isModelValid" data-inline="true">Add</a>
+				</div>
+			</div>
+            <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+        </div>
+	</div>
+</div>
+
+<div data-role="content" id="mapPageContent" >
+			<div id="mapContainer"  data-bind="with: mapViewModel">
+				<div title='Map' id="map" selected="true" ></div>
+			</div>
+</div>
+<div data-role="footer" id="map_commonFooterPart"></div>

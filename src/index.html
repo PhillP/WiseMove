@@ -1,0 +1,53 @@
+<!DOCTYPE html><!--HTML5 doctype-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+		<title>WiseMove - ppettit.net</title>
+
+		<link rel="stylesheet" type="text/css" href="css/relocate.css" /> 
+		<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/app-reset.css"/>
+        <link rel="stylesheet" type="text/css" href="css/app-ios.css"/>
+        <script src="script/jquery-1.9.1.min.js"></script>
+		<script src='script/knockout-2.2.1.js'></script>
+		<script src='script/knockout.validation.js'></script>
+		<script src="script/kobindings.js"></script>
+		<!-- Replace the key in the following url with your google api key and enable -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=[YourKey]&sensor=false"></script>
+        <script src="script/wisemove-control.js"></script>
+		<script src="script/wisemove-logic.js"></script>
+		<!-- Enable this for Cordova packaging: <script src="script/cordova-2.6.0.js"></script>  -->
+        <script src="script/jquery.mobile-1.3.1-patched.js"></script>
+		<script language="javascript" type="text/javascript" src="script/jquery.flot.js"></script>
+		<script language="javascript" type="text/javascript" src="script/jquery.flot.stack.js"></script>
+        <script language="javascript" type="text/javascript" src="script/jQuery.fastClick.js"></script>
+    </head>
+	<body>
+		<div id="main">
+			<div id="splash" data-role="page" data-cache="never">
+                <div id="splashSpacer"></div>
+                <div id="splashContent" align="center">
+                    <img src="images/logosmall.png"/>
+                </div>
+            </div>
+			<div id="homePage" data-role="page" data-cache="never"></div>
+			<div id="mapPage" data-role="page" data-cache="never"></div>
+			<div id="dataPage" data-role="page" data-cache="never"></div>
+			<div id="locationPage" data-role="page" data-cache="never"></div>
+			<div id="measuresPage" data-role="page" data-cache="never"></div>
+			<div id="peoplePage" data-role="page" data-cache="never"></div>
+			<div id="travelTimePage" data-role="page" data-cache="never"></div>
+			<div id="scorePage" data-role="page" data-cache="never"></div>
+			<div id="analysisPage" data-role="page" data-cache="never"></div>
+			<div id="chartPage" data-role="page" data-cache="never"></div>
+			<div id="aboutPage" data-role="page" data-cache="never"></div>
+			<div id="guidePage" data-role="page" data-cache="never"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,301 @@
+body {
+    margin: 0px;
+}
+
+#main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.validationMessage{
+    color:#f00;
+}
+
+.validationMessage:after{
+    content:'\A';
+    display: block;  
+    white-space: pre-wrap;
+}
+
+.scorecell {
+	height:90px
+}
+
+.ui-icon-app-candidate {
+	background: url("../images/map-button-candidate.png") no-repeat rgba(0, 0, 0, 0.4) !important;
+}
+
+.ui-icon-app-visit {
+	background: url("../images/map-button-visit.png") no-repeat rgba(0, 0, 0, 0.4) !important;
+}
+
+#splashSpacer {
+    height: 100px;
+}
+
+#splash {
+    height: 100%;
+    width: 100%;
+
+    /* fallback */
+    background-color: #a0a0ff;
+
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8080ff), to(#afafff));
+
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #8080ff, #afafff);
+
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #8080ff, #afafff);
+
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #8080ff, #afafff);
+
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #8080ff, #afafff);
+}
+
+#splashContent {
+    vertical-align: middle;
+}
+
+#homeContent {
+    /* fallback */
+    background-color: #a0a0ff;
+
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8080ff), to(#afafff));
+
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #8080ff, #afafff);
+
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #8080ff, #afafff);
+
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #8080ff, #afafff);
+
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #8080ff, #afafff);
+}
+
+#mapPageContent {padding: 0px !important;}
+
+#map img{max-width:none}
+
+.nav-glyphish-example .ui-btn .ui-btn-inner {
+    padding-top: 35px !important;
+    /*width: 70px!important;*/
+}
+
+.notepara {
+    font-size: small;
+}
+
+.nav-glyphish-example .ui-btn {
+    /*width: 36px!important;
+    height: 33px!important;
+    margin-left: -24px !important;*/
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius: none !important;
+    border-radius: none !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.nav-glyphish-example .ui-icon {
+    width: 36px!important;
+    height: 33px!important;
+    margin-left: -24px !important;
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius: none !important;
+    border-radius: none !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.homebutton {
+    padding-top: 10px
+}
+.homepagebutton {
+    width: 90px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.homeDynamic {
+    min-height: 40px;
+}
+#mapNav .ui-icon {
+    background-image: url(../images/map.png);
+    background-position: 12px 3px;
+    background-repeat: no-repeat;
+}
+
+#homeNav .ui-icon {
+    background-image: url(../images/home.png);
+    background-position: 12px 3px;
+    background-repeat: no-repeat;
+}
+
+#timesNav .ui-icon {
+    background-image: url(../images/time.png);
+    background-position: 12px 3px;
+    background-repeat: no-repeat;
+}
+
+#scoresNav .ui-icon {
+    background-image: url(../images/scores.png);
+    background-position: 12px 3px;
+    background-repeat: no-repeat;
+}
+
+#chartsNav .ui-icon {
+    background-image: url(../images/charts.png);
+    background-position: 10px 3px;
+    background-repeat: no-repeat;
+}
+
+#chartContent {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    widh: 100%;
+}
+
+.home-line {
+    clear: both;
+}
+
+.home-container {
+    overflow: auto;
+}
+
+#searchContainer {
+    display: inline-block;
+}
+
+#toolBarButtonDiv {
+    width:120px;
+    display: inline-block;
+}
+/* === BACK BUTTON === */
+
+.headerBack {
+    background: transparent url(images/backButtonSprite.png) 0 0 no-repeat !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    border: 0 none !important;
+    height: 30px;
+    background-position: 0 -31px !important;
+}
+
+.headerBack .ui-btn-inner {
+    background: transparent url(images/backButtonSprite.png) right 0 no-repeat !important;
+    margin: 0 0 0 15px;
+    padding: 0 8px 0 0 !important;
+    height: 30px;
+    line-height: 30px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+
+    background-position: right -32px !important;
+}
+
+.headerBack .ui-icon {
+    display: none;
+}
+
+#plotChart {
+    margin-left: 60px;
+}
+
+#chartNote {
+    font-size: 0.9em;
+}
+
+#chartNote:before {
+    content: "*";
+}
+
+div.yAxis > .tickLabel {
+    margin-right: 25px;
+}
+
+div.xAxis > .tickLabel {
+}
+/*
+
+a[data-rel='back'], .ui-header a[data-rel='back'] {
+    background: transparent url(images/backButtonSprite.png) 0 0 no-repeat !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-rdius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    border: 0 none !important;
+    height: 30px;
+
+    background-position: 0 -31px !important;
+}
+
+a[data-rel='back'] .ui-btn-inner {
+    background: transparent url(images/backButtonSprite.png) right 0 no-repeat !important;
+    margin: 0 0 0 15px;
+    padding: 0 8px 0 0 !important;
+    height: 30px;
+    line-height: 30px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+
+    background-position: right -32px !important;
+}
+
+a[data-rel='back'] .ui-icon {
+    display: none;
+}
+
+*/
+
+/* === BLACK - BACK BUTTON === */
+/*
+.ui-bar-b a[data-rel='back'] {
+    background-position: 0 -30px !important;
+}
+.ui-bar-b a[data-rel='back'] .ui-btn-inner {
+    background-position: right -30px !important;
+}
+*/
+
+/* jquery mobile flicker issue */
+.ui-panel-animate.ui-panel-content-wrap > .ui-content,
+.ui-panel-animate.ui-panel-content-wrap > .ui-footer  {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.ui-page {
+    -webkit-backface-visibility: hidden;
+    height: 100%;
+}
+
+.in, .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 100ms !important;
+}

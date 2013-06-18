@@ -1,0 +1,55 @@
+<div data-role="header" data-add-back-btn="true">
+    <a data-role="button" data-rel="back" data-icon="arrow-l" class="headerBack">Back</a>
+    <h1>Travel Time</h1>
+
+    <div id="travelTimePage_UpdateTravelTimePopup" data-role="popup" data-bind="popupvisible: $root.travelTimeViewModel.isUpdatingItem, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.travelTimeViewModel.updateItemClone">
+            <div class="ui-bar ui-bar-a">
+                <h1>Update Travel Time</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Single Trip minutes: <span data-bind="text: displayDurationMinutes"/><br/>
+                    <span data-bind="text: dataDisplayStatus"/><br/>
+                    Override minutes: <input data-bind="value: overrideDurationMinutes, valueUpdate: 'afterkeydown'"/>
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.travelTimeViewModel.lookupRoute" data-inline="true">Lookup Minutes</a>
+                <a data-role="button" data-bind="click: $root.travelTimeViewModel.updateItem, jqmlinkbuttonenabled: isModelValid" data-inline="true">Update</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.travelTimeViewModel.cancelUpdateItem">Close</a>
+    </div>
+</div>
+<div data-role="content" id="travelTimePageContent">
+	<p class="notepara">
+        Times are indicative and provided by Google Maps.
+        Times, where not available or where a manually entered value is preferred, can be entered by using the settings button for each travel time.
+	</p>
+    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+	<!-- ko jqmforeach: $root.currentProject().candidateLocations -->
+	<li data-role="list-divider">
+		<div data-type='horizontal'>
+			    <h3>
+					<span data-bind="text: name"/>
+				</h3>
+		</div>
+    </li>
+    <!-- ko jqmforeach: routeDataArray -->
+	<li>
+        <a>
+		<h3>To <span data-bind="text: visitLocation().name"/>: <span data-bind="text: displayScoreMinutes"/> mins</h3>
+		<p class="ui-li-desc">
+            Frequency: <span data-bind="text: visitLocation().frequency"/>
+            Single trip: <span data-bind="text: displayMinutes"/>&nbsp;
+            <span data-bind="text: dataDisplayStatus"/>
+        </p>
+        </a>
+        <a data-bind="click: $root.travelTimeViewModel.beginUpdateItem" data-icon="edit" data-inline="true">Edit</a>
+	</li>
+	<!-- /ko -->
+	<!-- /ko -->
+	</ul>
+</div>
+<div data-role="footer" id="travelTime_commonFooterPart"></div>

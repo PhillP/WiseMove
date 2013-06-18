@@ -1,0 +1,27 @@
+<div data-role="header" data-add-back-btn="true">
+    <h1>Scores</h1>
+
+</div>
+
+<div data-role="content" id="scorePageContent">
+		<ul data-role="listview" data-inset="true" data-divider-theme="a">
+		<!-- ko jqmforeach: $root.scoreViewModel.filteredScores -->
+		<!-- ko if: isFirstInCategory -->
+		<li data-role="list-divider">
+			<div data-type='horizontal'>
+					<h3>
+						<span data-bind="text: person().name"/>, <span data-bind="text: candidateLocation().name"/>
+					</h3>
+			</div>
+		</li>
+		<!-- /ko -->
+		<li>
+			<h3><span data-bind="text: measure().name"/>, <span data-bind="text: candidateLocation().name"/></h3>
+				<p><label for="sldScore">Score: <span data-bind="text: scoreValue"></span></label>
+				<input type="number" min="-1" max="10" data-bind="slidervalue: scoreValue" /></p>
+		</li>
+		<!-- /ko -->
+		</ul>
+</div>
+		
+<div data-role="footer" id="score_commonFooterPart"></div>

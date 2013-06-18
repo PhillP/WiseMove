@@ -1,0 +1,9 @@
+<div data-role="header">
+    <a data-role="button" data-rel="back" data-icon="arrow-l" class="headerBack">Back</a>
+    <h1><span data-bind="text: $root.analysisViewModel.currentChartName"></span></h1>
+</div>
+<div id="chartContent" data-role="content" >
+    <p id="chartNote" data-bind="text: $root.analysisViewModel.chartNote"></p>
+    <div id="plotChart"></div>
+</div>
+<div data-role="footer" id="chart_commonFooterPart"></div>

@@ -1,0 +1,65 @@
+<div data-role="header">
+    <a data-role="button" data-rel="back" data-icon="arrow-l" class="headerBack">Back</a>
+    <h1>Locations</h1>
+
+    <div id="refPage_UpdateVisitPopup" data-role="popup" data-bind="popupvisible: $root.mapViewModel.isUpdatingDeletingVisit, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.mapViewModel.visitLocationClone">
+            <div class="ui-bar ui-bar-a">
+                <h1>Update Visit</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+                    <label for="sldLocation_VisitFrequency">Frequency: <span data-bind="text: frequency"></span></label>
+                    <input type="number" id="sldLocation_VisitFrequency" min="1" max="10" data-bind="slidervalue: frequency" />
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.mapViewModel.updateVisitLocation, jqmlinkbuttonenabled: isModelValid" data-inline="true">Update</a>
+                <a data-role="button" data-bind="click: $root.mapViewModel.deleteVisitLocation" data-inline="true">Delete</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+
+    </div>
+
+    <div id="refPage_updateCandidatePopup" data-role="popup" data-bind="popupvisible: $root.mapViewModel.isUpdatingDeletingCandidate, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.mapViewModel.candidateLocationClone">
+            <div class="ui-bar ui-bar-a">
+                <h1>Update Candidate</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.mapViewModel.updateCandidateLocation, jqmlinkbuttonenabled: isModelValid" data-inline="true">Update</a>
+                <a data-role="button" data-bind="click: $root.mapViewModel.deleteCandidateLocation" data-inline="true">Delete</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.mapViewModel.cancelCurrentActions">Close</a>
+
+    </div>
+</div>
+<div data-role="content">
+<p>Locations are added on the map page.</p>
+<ul data-role="listview" data-inset="true" data-divider-theme="a">
+	<li data-role="list-divider">
+		<h3>Candidate Locations</h3>
+	    <p>Candidate locations are evaluated based on travel time and other measures defined.</p>
+	</li>
+	<!-- ko jqmforeach: $root.currentProject().candidateLocations -->
+	<li><a href="#"><h3><span data-bind="text: name"></span></h3><p>...</p></a><a data-bind="click: $root.mapViewModel.beginUpdateDeleteCandidateLocation" data-inline="true" data-icon='gear'><span>Details</span></a></li>
+	<!-- /ko -->
+	
+	<li data-role="list-divider">
+		<h3>Visit Locations</h3>
+	    <p>Travel time between candidate and visit locations is calculated and can be used as an evaluation measure.</p>
+	</li>
+	<!-- ko jqmforeach: $root.currentProject().visitLocations -->
+	<li><a href="#"><h3><span data-bind="text: name"></span></h3><p>Frequency: <span data-bind="text: frequency"></span></p></a><a data-bind="click: $root.mapViewModel.beginUpdateDeleteVisitLocation" data-inline="true" data-icon="edit"><span>Details</span></a></li>
+	<!-- /ko -->
+</ul>
+</div>
+<div data-role="footer" id="location_commonFooterPart"></div>

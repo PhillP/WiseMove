@@ -1,0 +1,64 @@
+<div data-role="header">
+    <a data-role="button" data-rel="back" data-icon="arrow-l" class="headerBack">Back</a>
+    <h1>Measures</h1>
+
+    <div id="refPage_AddMeasurePopup" data-role="popup" data-bind="popupvisible: $root.measureAddUpdateDeleteViewModel.isAddingItem, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.measureAddUpdateDeleteViewModel.newItem">
+            <div class="ui-bar ui-bar-a">
+                <h1>Add Measure</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+                    <label for="sldWeighting_addMeasure">Weighting: <span data-bind="text: weighting"></span></label>
+                    <input type="number" id="sldWeighting_addMeasure" min="0" max="10" data-bind="slidervalue: weighting" />
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.measureAddUpdateDeleteViewModel.addNewItem, jqmlinkbuttonenabled: isModelValid" data-inline="true">Add</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.measureAddUpdateDeleteViewModel.cancelAddNewItem">Close</a>
+    </div>
+
+    <div id="refPage_UpdateDeleteMeasurePopup" data-role="popup" data-bind="popupvisible: $root.measureAddUpdateDeleteViewModel.isUpdatingDeletingItem, popupoptions: $root.popupDialogOptions" class="ui-corner-all" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;">
+        <div class="ui-corner-bottom" style="max-width:400px;" data-bind="with: $root.measureAddUpdateDeleteViewModel.updateDeleteItemClone">
+            <div class="ui-bar ui-bar-a">
+                <h1>Update Measure</h1>
+            </div>
+            <div class="ui-content">
+                <fieldset>
+                    Name: <input data-bind="value: name, valueUpdate: 'afterkeydown'"/>
+                    <label for="sldWeighting_updateMeasure">Weighting: <span data-bind="text: weighting"></span></label>
+                    <input type="number" id="sldWeighting_updateMeasure" min="0" max="10" data-bind="slidervalue: weighting" />
+                </fieldset>
+            </div>
+            <div class="ui-bar ui-bar-a">
+                <a data-role="button" data-bind="click: $root.measureAddUpdateDeleteViewModel.updateItem, jqmlinkbuttonenabled: isModelValid" data-inline="true">Update</a>
+                <a data-role="button" data-bind="click: $root.measureAddUpdateDeleteViewModel.deleteItem, jqmlinkbuttonenabled: !isBuiltin()" data-inline="true">Delete</a>
+            </div>
+        </div>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-bind="click: $root.measureAddUpdateDeleteViewModel.cancelUpdateDeleteItem">Close</a>
+    </div>
+</div>
+
+<div data-role="content" >	
+<ul data-role="listview" data-inset="true" data-divider-theme="a">
+	<li data-role="list-divider">
+		<div data-type='horizontal'>
+			    <h3>
+					Measures
+					<a data-role="button" data-bind="click: $root.measureAddUpdateDeleteViewModel.beginAddNewItem" data-inline="true" data-icon='plus' data-mini="true" data-iconpos='notext'><span>Add</span></a>
+				</h3>
+			    <p>Each measure represents an evaluation criteria that is either subjectively scored, or rated based on a calculation.</p>
+		</div>
+    </li>
+	<!-- ko jqmforeach: $root.currentProject().measures -->
+	<li><a href="#"><h3><span data-bind="text: name"></span></h3>
+				<p>weighting: <span data-bind="text: weighting"></span></p></a><a data-bind="click: $root.measureAddUpdateDeleteViewModel.beginUpdateDeleteItem" data-inline="true" data-icon="edit"><span>Details</span></a></li>
+	<!-- /ko -->
+</ul>
+</div>
+<div data-role="footer" id="measures_commonFooterPart"></div>
+
+

@@ -20,6 +20,3 @@ Please also refer to the license information associated with the following libra
  * Knockout JS
  * graphics from openclipart.org
  * graphics from Glyph Icons
-
-Note: Before running your own copy of this application, you will need to obtain a google maps API key and replace the key placeholder (google maps script tag) in the index.html file accordingly.
-
